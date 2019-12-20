@@ -1,0 +1,9 @@
+.mainDiv{
+    border: 1px solid lightgray;
+    padding: 5px;
+    padding-left: 10px;
+    text-align: left;
+    width: 1000px;
+    margin: auto;
+    border-top: none;
+}
