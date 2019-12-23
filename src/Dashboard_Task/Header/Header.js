@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
-import { Link, BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
-import Home from './Sub_Header_Components/Home'
-import Page from './Sub_Header_Components/Page'
-import Dashboard from './Sub_Header_Components/Dashboard'
-import NavBar from './Sub_Header_Components/NavBar'
+import Home from './Home'
+import Page from './Page'
+import Dashboard from './Dashboard'
+import NavBar from './NavBar'
 class Header extends Component {
 
   render() {

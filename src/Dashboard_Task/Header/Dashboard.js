@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import SideBar from '../../Body_Components/SideBar'
-import MainBody from '../../Body_Components/MainBody'
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom'
-import '../../Body_Components/SideBar.css'
+import SideBar from '../Body_Components/SideBar'
+import MainBody from '../Body_Components/MainBody'
+
 class Dashboard extends Component {
 
   render() {
@@ -13,7 +12,6 @@ class Dashboard extends Component {
           <div className="col-md-3 bg-light" ><SideBar {...this.props} /></div>
           <div className="col-md-9 "> <MainBody {...this.props} /></div>
         </div>
-    
       </div>
       
       </>

@@ -3,9 +3,6 @@ import React, { Component } from 'react'
 class Home extends Component {
     render() {
         return (
-            // <div className="container pt-5">
-            //    <h1 className=""> Welcome Home</h1>
-            // </div>
             <div className="container">
                     <div class="jumbotron bg-white text-dark text-justify " >
             <h1 class="display-4"> Welcome Home</h1>
@@ -17,7 +14,6 @@ class Home extends Component {
             </p>
           </div>
             </div>
-        
         )
     }
 }

@@ -5,9 +5,6 @@ export class Page extends Component {
     return (
 
       <div className="text-left container">
-
-
-
         <form className="col-md-6 mt-5">
 
           <div class="form-group">
