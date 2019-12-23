@@ -11,9 +11,7 @@ import React, { Component } from 'react'
     }
     static getDerivedStateFromProps(props){
         console.log('LifeCycle B getDerivedStateFromProps')
-        return(
-            null
-        )
+        return  null
     }
     componentDidMount()
     {

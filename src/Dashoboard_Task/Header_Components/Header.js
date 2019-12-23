@@ -11,13 +11,11 @@ class Header extends Component {
     return (
       <>
         <NavBar />
-
         <Switch>
           <Route exact path="/" render={(props) => <Home {...props} />} />
           <Route path="/page" render={(props) => <Page {...props} />} />
           <Route path="/dashboard" render={(props) => <Dashboard {...props} />} />
         </Switch>
-
       </>
 
     )
