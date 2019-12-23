@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import SideBar from '../Body_Components/SideBar'
-import MainBody from '../Body_Components/MainBody'
+import SideBar from '../Body/SideBar'
+import MainBody from '../Body/MainBody'
 
 class Dashboard extends Component {
 

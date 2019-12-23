@@ -10,8 +10,8 @@ import EditUserModal from './Axios Requests/EditUserModal';
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
 import UserContainer from './Redux_Components/UserContainer';
-// import Header from './Dashboard_Task/Header/Header';
-import Header from './Dashboard_Functional_Task/Header/Header'
+import ClassHeader from './Dashboard_Task/Header/Header';
+import FunctionalHeader from './Dashboard_Functional_Task/Header/Header'
 function App() {
   
 
@@ -27,9 +27,8 @@ function App() {
         <UserContainer/>
         <PostForm/>
       </Provider> */}
-      <Router>
-        <Header/>
-      </Router>
+      <Router><ClassHeader/></Router>
+      {/* <Router><FunctionalHeader/></Router> */}
     </div>
   );
 }
