@@ -1,7 +1,10 @@
 import React, { Component } from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {} from 'react-redu'
+
 
 class MainBody extends Component {
+  
   render() {
     const { match } = this.props
     return (
