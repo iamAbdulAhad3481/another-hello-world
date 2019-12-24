@@ -16,6 +16,9 @@ import HooksCounter from './Hooks/HooksCounter'
 import HooksCounter2 from './Hooks/HooksCounter2';
 import HooksCounterObject from './Hooks/HooksCounterObject';
 import HooksCounterArray from './Hooks/HooksCounterArray';
+import UseEffect1 from './Hooks/UseEffect1';
+import UseEffect2 from './Hooks/UseEffect2';
+import FuncMain from './Func_Axios_Requests/FuncMain';
 
 
 function App() {
@@ -40,6 +43,10 @@ function App() {
       {/* <HooksCounter2/> */}
       {/* <HooksCounterObject/> */}
       {/* <HooksCounterArray/> */}
+      {/* <UseEffect1/>
+      <UseEffect2/> */}
+      <FuncMain/>
+
     </div>
   );
 }
