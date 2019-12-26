@@ -30,7 +30,7 @@ function App() {
       {/* <MainRoute/> */}
       {/* <EventCalender/> */}
       {/* <LifeCycleA/> */}
-      {/* <Main/> */}
+      <Main/>
 
       {/* <Provider store={store}>
         <UserContainer/>
@@ -45,7 +45,7 @@ function App() {
       {/* <HooksCounterArray/> */}
       {/* <UseEffect1/>
       <UseEffect2/> */}
-      <FuncMain/>
+      {/* <FuncMain/> */}
 
     </div>
   );

@@ -9,7 +9,7 @@ import Topics from './Topics'
 
 class MainRoute extends Component {
 
-  topics = [
+ topics = [
     {
       name: 'React Router',
       id: 'react-router',
@@ -78,7 +78,7 @@ class MainRoute extends Component {
             <Route exact path='/' component={Home} />
             <Route path='/about' component={About} />
             <Route path='/contact' component={Contact} />
-            <Route path='/topics' component={Topics} />
+            <Route path='/topics' render={(props)=><Topics {...props} topics={this.topics}/> }/>
             <Route component={NoMatch} />
           </Switch>
         </BrowserRouter>
