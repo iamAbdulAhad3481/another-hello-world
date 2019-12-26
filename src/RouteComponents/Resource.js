@@ -1,8 +1,11 @@
 import React from 'react'
 
 function Resource({ match, topics }) {
-  const topic = topics.find(({ id }) => id === match.params.topicId)
-    .resources.find(({ id }) => id === match.params.subId)
+  console.log(match)
+
+  let topic = topics.find((topic) => topic.id === match.params.topicId)
+   topic=topic.resources.find(({ id }) => id === match.params.subId)
+
   return (
     <div>
       <h3>{topic.name}</h3>
@@ -11,4 +14,5 @@ function Resource({ match, topics }) {
     </div>
   )
 }
+
 export default Resource
