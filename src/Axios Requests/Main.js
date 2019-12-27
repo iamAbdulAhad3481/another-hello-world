@@ -107,14 +107,14 @@ class Main extends Component {
       users: [],
       errorMsg: '',
       isAddUser: false,
-      showModal:false,
-      selectedUser:[]
+      showModal: false,
+      selectedUser: []
     }
   }
 
   componentDidMount() {
     axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(response =>this.setState({ users: response.data }))
+      .then(response => this.setState({ users: response.data }))
       .catch(error => this.setState({ errorMsg: error.message }))
   }
 
@@ -147,32 +147,32 @@ class Main extends Component {
       .catch(error => this.setState({ errorMsg: error.message, isAddUser: false }))
   }
 
-  openModal=(user)=>{
-    this.setState({showModal:true,selectedUser:user})
+  openModal = (user) => {
+    this.setState({ showModal: true, selectedUser: user })
   }
-  closeModal=()=>{
-    this.setState({showModal:false})
+  closeModal = () => {
+    this.setState({ showModal: false })
   }
-  saveModalDetails=(user)=>{
+  saveModalDetails = (user) => {
     console.log(user)
-    const{users}=this.state
-    axios.put(`https://jsonplaceholder.typicode.com/users/${user.id}`,user)
-    .then(response=>{
-      const index=users.findIndex(prevUser=>prevUser.id === user.id)
-      const tempUsers=users
-      tempUsers[index]=user
-      this.setState({users:tempUsers,showModal:false})
-    })
+    const { users } = this.state
+    axios.put(`https://jsonplaceholder.typicode.com/users/${user.id}`, user)
+      .then(response => {
+        const index = users.findIndex(prevUser => prevUser.id === user.id)
+        const tempUsers = users
+        tempUsers[index] = user
+        this.setState({ users: tempUsers, showModal: false })
+      })
   }
 
   render() {
-    const { users, errorMsg, isAddUser,showModal,selectedUser } = this.state
+    const { users, errorMsg, isAddUser, showModal, selectedUser } = this.state
     return (
       <div className="container text-left">
         {!isAddUser && <GetUsers users={users} errorMsg={errorMsg} deleteHandler={this.deleteUser} openModal={this.openModal} />}
         {!isAddUser && <button className="btn btn-primary  ml-3 mb-3" onClick={this.addUserForm}>Add User</button>}
         {isAddUser && <AddUserForm closeUserForm={this.closeUserForm} addUser={this.addUser} />}
-        {!isAddUser && showModal && < EditUserModal closeModal={this.closeModal} selectedUser={selectedUser} saveModalDetails={this.saveModalDetails}/>} 
+        {!isAddUser && showModal && < EditUserModal closeModal={this.closeModal} selectedUser={selectedUser} saveModalDetails={this.saveModalDetails} />}
       </div>
     )
   }
