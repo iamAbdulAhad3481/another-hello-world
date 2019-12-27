@@ -19,6 +19,9 @@ import HooksCounterArray from './Hooks/HooksCounterArray';
 import UseEffect1 from './Hooks/UseEffect1';
 import UseEffect2 from './Hooks/UseEffect2';
 import FuncMain from './Func_Axios_Requests/FuncMain';
+import ButtonCounter from './Components/ButtonCounter';
+import HoverCounter from './Components/HoverCounter';
+import Counter from './Components/Counter';
 
 
 function App() {
@@ -27,8 +30,10 @@ function App() {
   return (
 
     <div className="App">
-      <Router><MainRoute/></Router>
-     
+      {/* <Router>
+        <MainRoute />
+      </Router> */}
+
       {/* <EventCalender/> */}
       {/* <LifeCycleA/> */}
       {/* <Main/> */}
@@ -48,6 +53,17 @@ function App() {
       <UseEffect2/> */}
       {/* <FuncMain/> */}
 
+      {/* <Provider store={store}>
+        <PostForm/>
+      </Provider> */}
+      {/* <ButtonCounter/>
+      <HoverCounter/> */}
+      <Counter>
+        {(count, incrementCount) => <ButtonCounter count={count} incrementCount={incrementCount} />}
+      </Counter>
+      <Counter>
+        {(count, incrementCount) => <HoverCounter count={count} incrementCount={incrementCount} />}
+      </Counter>
     </div>
   );
 }
