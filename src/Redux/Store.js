@@ -1,10 +1,9 @@
-import {createStore,applyMiddleware,combineReducers} from 'redux'
+import {createStore,applyMiddleware} from 'redux'
 import thunk from 'redux-thunk'
-import {reducer} from './Reducer'
-import {userReducer} from './User/UserReducer'
+import {rootReducer} from './RootReducer'
 
 
 
-const store=createStore(userReducer,applyMiddleware(thunk))
+const store=createStore(rootReducer,applyMiddleware(thunk))
 
 export default store

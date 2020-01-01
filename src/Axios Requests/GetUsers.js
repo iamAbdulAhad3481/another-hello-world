@@ -42,7 +42,7 @@ import React, { Component } from 'react'
 class GetUsers extends Component {
 
   render() {
-    const { users, errorMsg, deleteHandler,openModal } = this.props
+    const { users, errorMsg, deleteHandler, openModal } = this.props
     return (
       <div className="container p-3">
         {
@@ -66,7 +66,7 @@ class GetUsers extends Component {
                       <td>{user.name} </td>
                       <td>{user.email} </td>
                       <td>{user.phone} </td>
-                      <td><button className="btn btn-primary" onClick={()=>openModal(user)}>Edit</button></td>
+                      <td><button className="btn btn-primary" onClick={() => openModal(user)}>Edit</button></td>
                       <td><button className="btn btn-danger" onClick={() => deleteHandler(user)}>Delete</button></td>
                     </tr>)
                 }

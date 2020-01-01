@@ -24,7 +24,7 @@ export const saveUserToServerFailure=(error)=>{
         payload:error
     }
 }
-export const postUser=(user)=>{
+export const fetchUser=(user)=>{
     return (dispatch)=>{
         dispatch(saveUserToServerRequest)
         axios.post('https://jsonplaceholder.typicode.com/users',user)

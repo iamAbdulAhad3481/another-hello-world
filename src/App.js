@@ -22,6 +22,7 @@ import FuncMain from './Func_Axios_Requests/FuncMain';
 import ButtonCounter from './Components/ButtonCounter';
 import HoverCounter from './Components/HoverCounter';
 import Counter from './Components/Counter';
+import IceCreamContainer from './Redux_Components/IceCreamContainer';
 
 
 function App() {
@@ -38,10 +39,10 @@ function App() {
       {/* <LifeCycleA/> */}
       {/* <Main/> */}
 
-      {/* <Provider store={store}>
-        <UserContainer/>
-        <PostForm/>
-      </Provider> */}
+      <Provider store={store}>
+        {/* <UserContainer/> */}
+        <IceCreamContainer/>
+      </Provider>
       {/* <Router><ClassHeader /></Router> */}
       {/* <Router><FunctionalHeader/></Router> */}
 
@@ -53,17 +54,14 @@ function App() {
       <UseEffect2/> */}
       {/* <FuncMain/> */}
 
-      {/* <Provider store={store}>
-        <PostForm/>
-      </Provider> */}
       {/* <ButtonCounter/>
       <HoverCounter/> */}
-      <Counter>
+      {/* <Counter>
         {(count, incrementCount) => <ButtonCounter count={count} incrementCount={incrementCount} />}
       </Counter>
       <Counter>
         {(count, incrementCount) => <HoverCounter count={count} incrementCount={incrementCount} />}
-      </Counter>
+      </Counter> */}
     </div>
   );
 }

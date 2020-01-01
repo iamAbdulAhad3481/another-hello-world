@@ -59,6 +59,7 @@ function FuncMain() {
   }
 
   const addUser = (user) => {
+    
     axios.post('https://jsonplaceholder.typicode.com/users', user)
       .then(response => {
         const Newusers = [...users, response.data];
