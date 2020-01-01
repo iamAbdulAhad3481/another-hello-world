@@ -1,6 +1,4 @@
-import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from './UserActionType'
-import { fetchUserRequest, fetchUserSuccess } from './UserActions'
-
+import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_ERROR, ADD_USER, DELETE_USER,EDIT_USER } from './UserActionType'
 
 const userInitialState = {
   users: [],
@@ -36,6 +34,34 @@ export const userReducer = (state = userInitialState, action) => {
           users: []
         }
       }
+    case ADD_USER:
+      return {
+        ...state,
+        loading: false,
+        users: [...state.users, action.payload],
+        error: ''
+      }
+    case DELETE_USER:
+      console.log(action)
+      return {
+        ...state,
+        loading: false,
+        users: state.users.filter(user => user.id != action.payload.id),
+        error: ''
+      }
+    case EDIT_USER:
+      console.log(action)
+      const index=action.index
+      const tempUsers = state.users
+      tempUsers[index] =action.payload
+      return {
+        ...state,
+        loading: false,
+        error:'',
+        users:tempUsers
+      }
+
+
     default:
       return state
   }

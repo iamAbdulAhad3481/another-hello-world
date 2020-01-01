@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { Delete } from '../Redux/User/UserActions'
 
-export class DisplayUsers extends Component {
+class DisplayUsers extends Component {
+  deleteHandler = (user) => {
+    const { deleteUser } = this.props
+    deleteUser(user)
+  }
   render() {
-    const { users } = this.props;
-
+    const { users,openModal } = this.props;
     return (
       <div className="container col-md-7 text-justify">
         {
@@ -23,8 +28,8 @@ export class DisplayUsers extends Component {
                   <td>{user.id} </td>
                   <td>{user.name}</td>
                   <td>{user.email}</td>
-                  <td><button className="btn btn-primary" >Edit</button></td>
-                  <td><button className="btn btn-danger" >Delete</button></td>
+                  <td><button className="btn btn-primary" onClick={()=>openModal(user)}>Edit</button></td>
+                  <td><button className="btn btn-danger" onClick={() => this.deleteHandler(user)}>Delete</button></td>
                 </tr>
               )}
             </table>
@@ -35,4 +40,9 @@ export class DisplayUsers extends Component {
   }
 }
 
-export default DisplayUsers
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteUser: (user) => dispatch(Delete(user))
+  }
+}
+export default connect(null,mapDispatchToProps)(DisplayUsers) 

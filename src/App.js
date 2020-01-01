@@ -9,7 +9,7 @@ import Main from './Axios Requests/Main';
 import EditUserModal from './Axios Requests/EditUserModal';
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
-import UserContainer from './Redux_Crud/UserContainer';
+import UserContainer from './Redux_Crud/MainContainer';
 import ClassHeader from './Dashboard_Task/Header/Header';
 import FunctionalHeader from './Dashboard_Functional_Task/Header/Header'
 import HooksCounter from './Hooks/HooksCounter'
@@ -23,6 +23,7 @@ import ButtonCounter from './Components/ButtonCounter';
 import HoverCounter from './Components/HoverCounter';
 import Counter from './Components/Counter';
 import IceCreamContainer from './Redux_Components/IceCreamContainer';
+import MainContainer from './Redux_Crud/MainContainer';
 
 
 function App() {
@@ -40,7 +41,7 @@ function App() {
       {/* <Main/> */}
 
       <Provider store={store}>
-        <UserContainer/>
+        <MainContainer/>
         {/* <IceCreamContainer/> */}
       </Provider>
       {/* <Router><ClassHeader /></Router> */}
