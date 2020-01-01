@@ -1,39 +1,35 @@
-import {
-    SAVE_USER_TO_SERVER_REQUEST,
-    SAVE_USER_TO_SERVER_SUCCESS,
-    SAVE_USER_TO_SERVER_FALIURE
-} from './UserActionType'
+import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from './UserActionType'
 import axios from 'axios'
-
-export const saveUserToServerRequest=()=>{
-    return{
-        type:SAVE_USER_TO_SERVER_REQUEST
-    }
+import store from '../Store'
+export const fetchUserRequest = () => {
+  return {
+    type: FETCH_USER_REQUEST
+  }
 }
 
-export const saveUserToServerSuccess=(user)=>{
-    return{
-        type:SAVE_USER_TO_SERVER_SUCCESS,
-        payload:user
-    }
+export const fetchUserSuccess = users => {
+  return {
+    type: FETCH_USER_SUCCESS,
+    payload: users
+  }
+}
+export const fetchUserError = error => {
+  return {
+    type: FETCH_USER_ERROR,
+    payload: error
+  }
 }
 
-export const saveUserToServerFailure=(error)=>{
-    return{
-        type:SAVE_USER_TO_SERVER_FALIURE,
-        payload:error
-    }
-}
-export const fetchUser=(user)=>{
-    return (dispatch)=>{
-        dispatch(saveUserToServerRequest)
-        axios.post('https://jsonplaceholder.typicode.com/users',user)
-        .then(response=>{
-            dispatch(saveUserToServerSuccess(response.data))
-        })
-        .catch(error=>{
-            const errorMsg=error.message;
-            dispatch(saveUserToServerFailure(errorMsg))
-        })
-    }
+
+export const fetchUser = () => {
+  return (dispatch) => {
+    dispatch(fetchUserRequest())
+    axios.get('https://jsonplaceholder.typicode.com/users')
+      .then(response => {
+        dispatch(fetchUserSuccess(response.data))
+      })
+      .catch(error => {
+        dispatch(fetchUserError(error.message))
+      })
+  }
 }
