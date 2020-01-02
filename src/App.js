@@ -36,7 +36,6 @@ function App() {
       </Router> */}
 
       {/* <EventCalender/> */}
-      {/* <LifeCycleA/> */}
       {/* <Main/> */}
 
       {/* <Provider store={store}>
@@ -44,8 +43,13 @@ function App() {
         <IceCreamContainer/>
       </Provider> */}
 
-      <Router><Header /></Router>
-      {/* <Router><FunctionalHeader/></Router> */}
+      <Router>
+        <Header />
+      </Router>
+
+      {/* <Router>
+      <FunctionalHeader/>
+      </Router> */}
 
       {/* <HooksCounter/> */}
       {/* <HooksCounter2/> */}

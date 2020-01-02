@@ -10,8 +10,8 @@ function Header() {
     <div>
       <NavBar />
       <Switch>
-        <Route exact path="/" render={props => <Home {...props} />} />
-        <Route path="/page" render={props => <Page {...props} />} />
+        <Route exact path="/" component={Home} />
+        <Route path="/page" component={Page} />} />
         <Route path="/dashboard" render={props => <Dashboard {...props} />} />
       </Switch>
     </div>
