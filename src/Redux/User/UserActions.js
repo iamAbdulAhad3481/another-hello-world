@@ -1,7 +1,6 @@
 import { FETCH_USER_REQUEST, FETCH_USER_SUCCESS, FETCH_USER_ERROR } from './UserActionType'
 import { ADD_USER, DELETE_USER,EDIT_USER } from './UserActionType'
 import axios from 'axios'
-import store from '../Store'
 export const fetchUserRequest = () => {
   return {
     type: FETCH_USER_REQUEST
