@@ -1,18 +1,17 @@
-import React from 'react'
+import React from "react";
 
 function Resource({ match, topics }) {
-  console.log(match)
-
-  let topic = topics.find((topic) => topic.id === match.params.topicId)
-   topic=topic.resources.find(({ id }) => id === match.params.subId)
-
+  const topic = topics
+    .find(topic => topic.id === match.params.topicId)
+    .resources.find(sub => sub.id === match.params.subId);
+  console.log(topic);
   return (
     <div>
-      <h3>{topic.name}</h3>
+      <h1>{topic.name}</h1>
       <p>{topic.description}</p>
-      <a href={topic.url}>More info.</a>
+      <a href={`${topic.url}`}>More Info</a>
     </div>
-  )
+  );
 }
 
-export default Resource
+export default Resource;

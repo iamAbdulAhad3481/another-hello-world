@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 class AddUserForm extends Component {
   constructor(props) {
     super(props)
-
     this.state = {
       name: '',
       email: '',
@@ -26,8 +25,8 @@ class AddUserForm extends Component {
     return (
       <div className="container  mt-4 ">
         <div className="card col-md-6  m-auto">
-          <h5 className="  text-center py-4 "><strong className=" display-4 text-dark" style={{fontWeight:"normal"}}>Edit User</strong></h5>
-          <hr/>
+          <h5 className="  text-center py-4 "><strong className=" display-4 text-dark" style={{ fontWeight: "normal" }}>Edit User</strong></h5>
+          <hr />
           <div class="card-body ">
             <form onSubmit={this.handleSave} className="text-left" style={{ color: "#757575" }}>
               <div className=" form-group">

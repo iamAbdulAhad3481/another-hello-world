@@ -1,70 +1,99 @@
-import React, { Component } from 'react'
-import { createUser } from '../Redux/User/UserActions'
-import { connect } from 'react-redux'
+import React, * as react from "react";
+import { createUser } from "../Redux/User/UserActions";
+import { connect } from "react-redux";
 
-class AddUserForm extends Component {
+class AddUserForm extends react.Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
-      name: '',
-      email: '',
-      phone: ''
-    }
+      name: "",
+      email: "",
+      phone: ""
+    };
   }
   changeHandler = e => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
+    this.setState({ [e.target.name]: e.target.value });
+  };
   handleSave = e => {
     e.preventDefault();
     const user = this.state;
-    const { addUser, closeUserForm } = this.props
+    const { addUser, closeUserForm } = this.props;
     addUser(user);
     closeUserForm();
-  }
-
+  };
 
   render() {
-    const { name, email, phone } = this.state
+    const { name, email, phone } = this.state;
     return (
       <div className="container  mt-4 ">
         <div className="card col-md-6  m-auto">
-          <h5 className="  text-center py-4 "><strong className=" display-4 text-dark" style={{ fontWeight: "normal" }}>Add User</strong></h5>
+          <h5 className="  text-center py-4 ">
+            <strong
+              className=" display-4 text-dark"
+              style={{ fontWeight: "normal" }}
+            >
+              Add User
+            </strong>
+          </h5>
           <hr />
           <div class="card-body ">
-            <form onSubmit={this.handleSave} className="text-left" style={{ color: "#757575" }}>
+            <form
+              onSubmit={this.handleSave}
+              className="text-left"
+              style={{ color: "#757575" }}
+            >
               <div className=" form-group">
-                <label >Name:</label>
-                <input type="text" value={name} name="name" onChange={this.changeHandler} className="form-control" placeholder="Codility" />
+                <label>Name:</label>
+                <input
+                  type="text"
+                  value={name}
+                  name="name"
+                  onChange={this.changeHandler}
+                  className="form-control"
+                  placeholder="Codility"
+                />
               </div>
               <div className="form-group">
-                <label >Email:</label>
-                <input type="text" className="form-control" value={email} name="email" onChange={this.changeHandler} placeholder="Email or Login" />
+                <label>Email:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={email}
+                  name="email"
+                  onChange={this.changeHandler}
+                  placeholder="Email or Login"
+                />
               </div>
 
-              < div className="form-group">
-                <label >Phone:</label>
-                <input type="text" className="form-control" value={phone} name="phone" onChange={this.changeHandler} placeholder="+92-*******" />
+              <div className="form-group">
+                <label>Phone:</label>
+                <input
+                  type="text"
+                  className="form-control"
+                  value={phone}
+                  name="phone"
+                  onChange={this.changeHandler}
+                  placeholder="+92-*******"
+                />
               </div>
-              <button className="btn btn-danger" type="submit" >Save</button>
-              <button className="btn btn-secondary ml-3" >Close</button>
+              <button className="btn btn-danger" type="submit">
+                Save
+              </button>
+              <button className="btn btn-secondary ml-3">Close</button>
             </form>
-
           </div>
         </div>
-
-      </div >
-    )
+      </div>
+    );
   }
-
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return {
     addUser: user => {
-      dispatch(createUser(user))
+      dispatch(createUser(user));
     }
-  }
-
-}
-export default connect(null, mapDispatchToProps)(AddUserForm) 
+  };
+};
+export default connect(null, mapDispatchToProps)(AddUserForm);

@@ -10,7 +10,7 @@ import EditUserModal from './Axios Requests/EditUserModal';
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
 import UserContainer from './Redux_Crud/MainContainer';
-import ClassHeader from './Dashboard_Task/Header/Header';
+import Header from './Dashboard_Task/Header/Header';
 import FunctionalHeader from './Dashboard_Functional_Task/Header/Header'
 import HooksCounter from './Hooks/HooksCounter'
 import HooksCounter2 from './Hooks/HooksCounter2';
@@ -28,7 +28,6 @@ import MainContainer from './Redux_Crud/MainContainer';
 
 function App() {
 
-
   return (
 
     <div className="App">
@@ -40,11 +39,12 @@ function App() {
       {/* <LifeCycleA/> */}
       {/* <Main/> */}
 
-      <Provider store={store}>
+      {/* <Provider store={store}>
         <MainContainer/>
-        {/* <IceCreamContainer/> */}
-      </Provider>
-      {/* <Router><ClassHeader /></Router> */}
+        <IceCreamContainer/>
+      </Provider> */}
+
+      <Router><Header /></Router>
       {/* <Router><FunctionalHeader/></Router> */}
 
       {/* <HooksCounter/> */}
