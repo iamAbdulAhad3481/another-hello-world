@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { userAxios } from '../config';
-import GetUsers from './GetUsers';
-import AddUserForm from './AddUserForm';
-import EditUserModal from './EditUserModal';
+import Table from './Table';
+import Form from './Form';
+import Modal from './Modal';
 import toast from '../toast';
 
 class Main extends Component {
@@ -73,7 +73,7 @@ class Main extends Component {
   saveModalDetails = user => {
     const { users } = this.state
     userAxios
-      .patch(`/users/${user.id}`, user)
+      .put(`/users/${user.id}`, user)
       .then(() => {
         const index = users.findIndex(prevUser => prevUser.id === user.id);
         const tempUsers = users;
@@ -91,10 +91,10 @@ class Main extends Component {
     const { users, errorMsg, isAddUser, showModal, selectedUser } = this.state
     return (
       <div className="container text-left">
-        {!isAddUser && <GetUsers users={users} errorMsg={errorMsg} deleteHandler={this.deleteUser} openModal={this.openModal} />}
+        {!isAddUser && <Table users={users} errorMsg={errorMsg} deleteHandler={this.deleteUser} openModal={this.openModal} />}
         {!isAddUser && <button className="btn btn-primary  ml-3 mb-3" onClick={this.addUserForm}>Add User</button>}
-        {isAddUser && <AddUserForm closeUserForm={this.closeUserForm} addUser={this.addUser} />}
-        {!isAddUser && showModal && < EditUserModal closeModal={this.closeModal} selectedUser={selectedUser} saveModalDetails={this.saveModalDetails} />}
+        {isAddUser && <Form closeUserForm={this.closeUserForm} addUser={this.addUser} />}
+        {!isAddUser && showModal && < Modal closeModal={this.closeModal} selectedUser={selectedUser} saveModalDetails={this.saveModalDetails} />}
       </div>
     )
   }

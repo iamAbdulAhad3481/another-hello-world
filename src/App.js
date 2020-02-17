@@ -6,7 +6,7 @@ import EventCalender from './Components/EventCalender';
 import MainRoute from './RouteComponents/MainRoute';
 import LifeCycleA from './Components/LifeCycleA';
 import Main from './Axios Requests/Main';
-import EditUserModal from './Axios Requests/EditUserModal';
+import EditUserModal from './Axios Requests/Modal';
 import { Provider } from 'react-redux'
 // import store from './Redux/Store'
 import UserContainer from './Redux_Crud/MainContainer';
