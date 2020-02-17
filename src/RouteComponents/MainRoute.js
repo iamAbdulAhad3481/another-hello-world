@@ -10,5 +10,4 @@ function MainRoute() {
     </div>
   );
 }
-
 export default MainRoute;

@@ -90,5 +90,4 @@ function Topics({ match }) {
     </div>
   );
 }
-
 export default Topics;

@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
-
 import Home from "./Home";
 import Contact from "./Contact";
 import About from "./About";
@@ -20,5 +19,4 @@ function Routes() {
     </div>
   );
 }
-
 export default Routes;

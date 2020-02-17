@@ -17,7 +17,7 @@ function Topic({ match, topics }) {
       <hr />
       <Route
         path={`${match.path}/:subId`}
-        render={props => <Resource {...props} topics={topics} />}
+        render={props => <Resource {...props} topic={topic} />}
       />
     </div>
   );
