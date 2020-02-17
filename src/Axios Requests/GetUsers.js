@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 class GetUsers extends Component {
 
@@ -28,7 +28,7 @@ class GetUsers extends Component {
                       <td>{user.email} </td>
                       <td>{user.phone} </td>
                       <td><button className="btn btn-primary" onClick={() => openModal(user)}>Edit</button></td>
-                      <td><button className="btn btn-danger" onClick={() => deleteHandler(user)}>Delete</button></td>
+                      <td><button className="btn btn-danger" onClick={() => deleteHandler(user.id)}>Delete</button></td>
                     </tr>)
                 }
               </table>

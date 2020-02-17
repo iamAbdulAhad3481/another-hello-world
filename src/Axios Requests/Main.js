@@ -1,11 +1,9 @@
-
-
-
-import React, { Component } from 'react'
-import axios from 'axios'
-import GetUsers from './GetUsers'
-import AddUserForm from './AddUserForm'
-import EditUserModal from './EditUserModal'
+import React, { Component } from 'react';
+import { userAxios } from '../config';
+import GetUsers from './GetUsers';
+import AddUserForm from './AddUserForm';
+import EditUserModal from './EditUserModal';
+import toast from '../toast';
 
 class Main extends Component {
   constructor(props) {
@@ -20,56 +18,73 @@ class Main extends Component {
   }
 
   componentDidMount() {
-    axios.get('https://jsonplaceholder.typicode.com/users')
+    userAxios
+      .get('/users')
       .then(response => this.setState({ users: response.data }))
       .catch(error => this.setState({ errorMsg: error.message }))
   }
 
-  deleteUser = (user) => {
-    console.log(user)
-    const id = user.id;
-    const { users } = this.state
-    axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then(response => {
-        const updatedUsers = users.filter(user => user.id !== id)
-        this.setState({ users: updatedUsers })
-      })
-      .catch(error => this.setState({ errorMsg: error.message }))
+  deleteUser = id => {
+    const confirm = window.confirm('Are you sure you want to delete');
+    if (confirm) {
+      userAxios
+        .delete(`/users/${id}`)
+        .then(() => {
+          const updatedUsers = this.state.users.filter(user => user.id !== id);
+          this.setState({ users: updatedUsers });
+          toast.success('Employee deleted successfully');
+        })
+        .catch(error => {
+          this.setState({ errorMsg: error.message });
+          toast.error('User is not deleted');
+          });
+    }
   }
 
   addUserForm = () => {
-    this.setState({ isAddUser: true })
+    this.setState({ isAddUser: true });
   }
   closeUserForm = () => {
-    this.setState({ isAddUser: false })
+    this.setState({ isAddUser: false });
   }
 
-  addUser = (user) => {
-    console.log(user)
-    axios.post('https://jsonplaceholder.typicode.com/users', user)
-      .then(response => {
-        const users = [...this.state.users, response.data];
-        this.setState({ users, isAddUser: false })
+  addUser = user => {
+    userAxios
+      .post('/users', user)
+      .then(res => {
+        const users = [...this.state.users, res.data];
+        this.setState({ users, isAddUser: false });
+        toast.success('User added succesfully');
       })
-      .catch(error => this.setState({ errorMsg: error.message, isAddUser: false }))
+      .catch(error => {
+        this.setState({ errorMsg: error.message, isAddUser: false })
+        toast.error('User is not deleted');
+      });
   }
 
-  openModal = (user) => {
-    this.setState({ showModal: true, selectedUser: user })
+  openModal = user => {
+    this.setState({ showModal: true, selectedUser: user });
   }
+
   closeModal = () => {
     this.setState({ showModal: false })
   }
-  saveModalDetails = (user) => {
-    console.log(user)
+
+  saveModalDetails = user => {
     const { users } = this.state
-    axios.put(`https://jsonplaceholder.typicode.com/users/${user.id}`, user)
-      .then(response => {
-        const index = users.findIndex(prevUser => prevUser.id === user.id)
-        const tempUsers = users
-        tempUsers[index] = user
-        this.setState({ users: tempUsers, showModal: false })
+    userAxios
+      .patch(`/users/${user.id}`, user)
+      .then(() => {
+        const index = users.findIndex(prevUser => prevUser.id === user.id);
+        const tempUsers = users;
+        tempUsers[index] = user;
+        this.setState({ users: tempUsers, showModal: false });
+        toast.success('Employee updated successfully');
       })
+      .catch(error => {
+        this.setState({ errorMsg: error.message, showModal: false});
+        toast.error('User is not updated');
+      });
   }
 
   render() {

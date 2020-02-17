@@ -5,7 +5,7 @@ import './App.css';
 import EventCalender from './Components/EventCalender';
 import MainRoute from './RouteComponents/MainRoute';
 import LifeCycleA from './Components/LifeCycleA';
-// import Main from './Axios Requests/Main';
+import Main from './Axios Requests/Main';
 import EditUserModal from './Axios Requests/EditUserModal';
 import { Provider } from 'react-redux'
 // import store from './Redux/Store'
@@ -25,7 +25,7 @@ import Counter from './Components/Counter';
 import IceCreamContainer from './Redux_Components/IceCreamContainer';
 import MainContainer from './Redux_Crud/MainContainer';
 import store from './1-Redux /Redux/Store'
-import Main from './1-Redux /Redux Container/Main'
+// import Main from './1-Redux /Redux Container/Main'
 
 function App() {
 
@@ -37,7 +37,7 @@ function App() {
       </Router> */}
 
       {/* <EventCalender/> */}
-      {/* <Main/> */}
+      <Main/>
 
       {/* <Provider store={store}>
         <MainContainer/>
@@ -68,9 +68,9 @@ function App() {
       <Counter>
         {(count, incrementCount) => <HoverCounter count={count} incrementCount={incrementCount} />}
       </Counter> */}
-      <Provider store={store}>
+      {/* <Provider store={store}>
        <Main/>
-      </Provider>
+      </Provider> */}
     </div>
   );
 }
