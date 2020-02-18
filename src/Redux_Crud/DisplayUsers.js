@@ -1,12 +1,14 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { Delete } from '../Redux/User/UserActions'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { Delete } from '../Redux/User/UserActions';
 
 class DisplayUsers extends Component {
-  deleteHandler = (user) => {
-    const { deleteUser } = this.props
-    deleteUser(user)
+
+  deleteHandler = user => {
+    const { deleteUser } = this.props;
+    deleteUser(user);
   }
+
   render() {
     const { users,openModal } = this.props;
     return (
@@ -44,5 +46,5 @@ const mapDispatchToProps = dispatch => {
   return {
     deleteUser: (user) => dispatch(Delete(user))
   }
-}
-export default connect(null,mapDispatchToProps)(DisplayUsers) 
+};
+export default connect(null,mapDispatchToProps)(DisplayUsers) ;

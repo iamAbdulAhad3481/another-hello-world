@@ -1,4 +1,4 @@
-import React, * as react from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { fetchUser } from "../Redux/User/UserActions";
 import DisplayUsers from "./DisplayUsers";
@@ -6,11 +6,11 @@ import AddUser from "./AddUser";
 import EditModal from "./EditModal";
 
 function MainContainer({ fetchUser, userData }) {
-  const [isAddUser, setIsAddUser] = react.useState(false);
-  const [showModal, setShowModal] = react.useState(false);
-  const [selectedUser, setSelectedUser] = react.useState({});
+  const [isAddUser, setIsAddUser] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [selectedUser, setSelectedUser] = useState({});
 
-  react.useEffect(() => {
+  useEffect(() => {
     fetchUser();
   }, []);
 
@@ -21,6 +21,7 @@ function MainContainer({ fetchUser, userData }) {
     setShowModal(true);
     setSelectedUser(user);
   };
+  
   const closeModal = () => {
     setShowModal(false);
   };

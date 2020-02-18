@@ -12,9 +12,11 @@ class AddUserForm extends react.Component {
       phone: ""
     };
   }
+
   changeHandler = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
+  
   handleSave = e => {
     e.preventDefault();
     const user = this.state;

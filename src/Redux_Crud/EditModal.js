@@ -1,8 +1,7 @@
-import React, { Component } from 'react'
-import { Modal, Button } from 'react-bootstrap'
-import { show } from 'react-bootstrap'
-import {connect} from 'react-redux'
-import { Edit } from '../Redux/User/UserActions'
+import React, { Component } from 'react';
+import { Modal, Button } from 'react-bootstrap';
+import {connect} from 'react-redux';
+import { Edit } from '../Redux/User/UserActions';
 
 class EditModal extends Component {
   constructor(props) {
@@ -15,26 +14,22 @@ class EditModal extends Component {
       phone: ''
     }
   }
+
   componentDidMount() {
-    const { name, email, phone } = this.state
-    const { selectedUser } = this.props
-    this.setState({
-      id: selectedUser.id,
-      name: selectedUser.name,
-      email: selectedUser.email,
-      phone: selectedUser.phone
-    })
+    const { id, name, email, phone } = this.props.selectedUser;
+    this.setState({ id, name, email, phone });
   }
-  changeHandler = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
+
+  changeHandler = e => {
+    this.setState({ [e.target.name]: e.target.value });
   }
+
   handleSave = () => {
-    const{closeModal,users,editUser}=this.props
-    const user = this.state
-    const index = users.findIndex(prevUser => prevUser.id === user.id)
-    editUser(user,index)
-    closeModal()
- 
+    const{closeModal,users,editUser}=this.props;
+    const user = this.state;
+    const index = users.findIndex(prevUser => prevUser.id === user.id);
+    editUser(user,index);
+    closeModal();
   }
 
   render() {
@@ -81,6 +76,6 @@ const mapDispatchToProps = dispatch=>{
   return{
     editUser:(user,index)=>dispatch(Edit(user,index))
   }
-}
-export default connect(null,mapDispatchToProps) (EditModal)
+};
+export default connect(null,mapDispatchToProps) (EditModal);
 
