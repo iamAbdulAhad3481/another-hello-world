@@ -37,16 +37,16 @@ function App() {
       </Router> */}
 
       {/* <EventCalender/> */}
-      <Main/>
+      {/* <Main/> */}
 
       {/* <Provider store={store}>
         <MainContainer/>
         <IceCreamContainer/>
       </Provider> */}
 
-      {/* <Router>
+      <Router>
         <Header />
-      </Router> */}
+      </Router>
 
       {/* <Router>
       <FunctionalHeader/>

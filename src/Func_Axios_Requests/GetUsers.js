@@ -1,7 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-function GetUsers(props) {
-  const { users, error, deleteHandler, editHandler } = props;
+function GetUsers({ users, error, deleteHandler, editHandler }) {
   return (
     <div className="container">
     {
@@ -31,6 +30,5 @@ function GetUsers(props) {
   </div>
   )
 }
-
-export default GetUsers
+export default GetUsers;
 

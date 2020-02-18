@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
-
-import GetUsers from './GetUsers'
-import EditUserModal from './EditUserModal'
-import AddUserModal from './AddUserModal'
+import React, { useState, useEffect } from 'react';
+import {userAxios} from '../config';
+import GetUsers from './GetUsers';
+import EditUserModal from './EditUserModal';
+import AddUserModal from './AddUserModal';
 
 function FuncMain() {
   const [users, setUsers] = useState([]);
@@ -13,63 +12,62 @@ function FuncMain() {
   const [isAddUser, setIsAddUser] = useState(false);
 
   useEffect(() => {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-      .then(response => setUsers(response.data))
+    userAxios
+      .get('/users')
+      .then(res => setUsers(res.data))
       .catch(error => setError(error.message))
   }, [])
 
-  const deleteUser = (user) => {
-    console.log(user);
+  const deleteUser = user => {
     const id = user.id;
-    axios.delete(`https://jsonplaceholder.typicode.com/users/${user.id}`)
-      .then(response => {
+    userAxios
+      .delete(`/users/${user.id}`)
+      .then(() => {
         const newUsers = users.filter(currentUser => currentUser.id !== id);
-        console.log(newUsers);
-        setUsers(newUsers)
+        setUsers(newUsers);
       })
-      .catch(error => setError(error.message))
+      .catch(error => setError(error.message));
   }
 
-  const editUser = (user) => {
-    setSelectedUser(user)
-    setShowModal(true)
+  const editUser = user => {
+    setSelectedUser(user);
+    setShowModal(true);
   }
 
-  const saveModalDetails = (user) => {
-    axios.put(`http://jsonplaceholder.typicode.com/users/${user.id}`, user)
-      .then(response => {
+  const saveModalDetails = user => {
+    userAxios
+      .put(`/users/${user.id}`, user)
+      .then(res => {
         const index = users.findIndex((prevUser) => prevUser.id === user.id);
-        console.log(index);
         const tempUser = users;
         tempUser[index] = user;
         setUsers(tempUser);
         setShowModal(false);
       })
-      .catch(error => console.log(error))
+      .catch(error => setError(error.message));
   }
   const closeEditModal = () => {
-    setShowModal(false)
+    setShowModal(false);
   }
   const openUserModal = () => {
-    setIsAddUser(true)
+    setIsAddUser(true);
   }
 
   const closeUserModal = () => {
-    setIsAddUser(false)
+    setIsAddUser(false);
   }
 
-  const addUser = (user) => {
+  const addUser = user => {
     
-    axios.post('https://jsonplaceholder.typicode.com/users', user)
-      .then(response => {
-        const Newusers = [...users, response.data];
-        console.log(users)
+    userAxios.
+      post('/users', user)
+      .then(res => {
+        const Newusers = [...users, res.data];
         setUsers(Newusers);
         setIsAddUser(false);
       })
       .catch(error => setError(error.message))
   }
-
 
   return (
     <div>
@@ -80,5 +78,4 @@ function FuncMain() {
     </div>
   )
 }
-
-export default FuncMain
+export default FuncMain;

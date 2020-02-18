@@ -1,9 +1,8 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import { NavDropdown, Nav, eventKey } from 'react-bootstrap'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { NavDropdown, Nav } from 'react-bootstrap';
 
-function SideBar(props) {
-  const { match } = props
+function SideBar({ match }) {
   return (
     <>
       <Nav defaultActiveKey="1" className="flex-column text-left  pt-4 mt-5 ">
@@ -19,5 +18,4 @@ function SideBar(props) {
     </>
   )
 }
-
-export default SideBar
+export default SideBar;

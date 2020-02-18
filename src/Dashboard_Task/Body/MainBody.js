@@ -1,8 +1,8 @@
-import React from 'react'
-import { Route,Switch } from 'react-router-dom'
-import Text from './Text'
-function MainBody(props) {
-  const { match } = props
+import React from 'react';
+import { Route,Switch } from 'react-router-dom';
+import Text from './Text';
+
+function MainBody({ match }) {
   return (
     <div>
       <Switch>
@@ -19,6 +19,6 @@ function MainBody(props) {
     </div>
   )
 }
-export default MainBody
+export default MainBody;
 
 

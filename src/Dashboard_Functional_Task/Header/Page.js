@@ -1,7 +1,4 @@
-
-
-
-import React from 'react'
+import React from 'react';
 
 function Page() {
   return (
@@ -41,8 +38,4 @@ function Page() {
     </div>
   )
 }
-
-
-
-
-export default Page
+export default Page;

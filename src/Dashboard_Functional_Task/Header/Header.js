@@ -1,9 +1,10 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
-import Home from './Home'
-import Page from './Page'
-import Dashboard from './Dashboard'
-import NavBar from './NavBar'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
+import Home from './Home';
+import Page from './Page';
+import Dashboard from './Dashboard';
+import NavBar from './NavBar';
+
 function Header() {
   return (
     <>
@@ -16,8 +17,4 @@ function Header() {
   </>
   )
 }
-
-
-
-
-export default Header
+export default Header;

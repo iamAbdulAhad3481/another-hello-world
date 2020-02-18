@@ -1,6 +1,7 @@
-import React from 'react'
-import { NavDropdown, Nav, eventKey } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import React from 'react';
+import { NavDropdown, Nav, eventKey } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+
 function SideBar() {
   return (
     <>
@@ -17,4 +18,4 @@ function SideBar() {
     </>
   )
 }
-export default SideBar
+export default SideBar;

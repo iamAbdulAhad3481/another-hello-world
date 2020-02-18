@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-function Text({title}) {
+function Text({ title }) {
   return (
     <div class="jumbotron bg-white text-dark text-justify">
       <h1 class="display-6 mb-3">{title}</h1>
@@ -13,5 +13,4 @@ function Text({title}) {
     </div>
   )
 }
-
-export default Text
+export default Text;

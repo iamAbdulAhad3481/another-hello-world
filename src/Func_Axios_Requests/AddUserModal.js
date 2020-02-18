@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import React, { useState } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
-function AddUserModal(props) {
+function AddUserModal({ addUser, closeUserModal }) {
   const [user, setUser] = useState({ id: '', name: '', email: ''});
-  const handleSave = e => props.addUser(user);
+  const handleSave = e => addUser(user);
 
   return (
     <Modal size="lg" aria-labelledby="contained-modal-title-vcenter" centered show="true">
@@ -28,12 +28,11 @@ function AddUserModal(props) {
 
       <Modal.Footer>
         <Button className="btn btn-danger" onClick={handleSave}>Save</Button>
-        <Button onClick={props.closeUserModal} >Close</Button>
+        <Button onClick={closeUserModal} >Close</Button>
       </Modal.Footer>
 
     </Modal>
   )
 }
-
-export default AddUserModal
+export default AddUserModal;
 

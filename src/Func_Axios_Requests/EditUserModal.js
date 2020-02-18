@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from 'react'
-import { Modal, Button } from 'react-bootstrap'
+import React, { useState, useEffect } from 'react';
+import { Modal, Button } from 'react-bootstrap';
 
-function EditUserModal(props) {
+function EditUserModal({ selectedUser, saveModalDetails, closeEditModal }) {
 
   const [user, setUser] = useState({ id: '', name: '', email: '' })
 
   useEffect(() => {
-    const { selectedUser } = props;
-    setUser({...user,id: selectedUser.id,name: selectedUser.name,email: selectedUser.email});
+    setUser({ ...user,id: selectedUser.id,name: selectedUser.name,email: selectedUser.email });
   }, [])
 
-  const handleSave = e => props.saveModalDetails(user);
+  const handleSave = e => saveModalDetails(user);
 
   return (
     <div>
@@ -35,15 +34,12 @@ function EditUserModal(props) {
 
         <Modal.Footer>
           <Button className="btn btn-danger" onClick={handleSave}>Add</Button>
-          <Button onClick={props.closeEditModal} >Close</Button>
+          <Button onClick={closeEditModal} >Close</Button>
         </Modal.Footer>
-
-
 
       </Modal>
     </div>
   )
 }
-
-export default EditUserModal
+export default EditUserModal;
 

@@ -1,6 +1,7 @@
-import React from 'react'
-import MainBody from "../Body/MainBody"
-import SideBar from '../Body/SideBar'
+import React from 'react';
+import MainBody from "../Body/MainBody";
+import SideBar from '../Body/SideBar';
+
 function Dashboard(props) {
   return (
     <>
@@ -14,7 +15,7 @@ function Dashboard(props) {
     </>
   )
 }
-export default Dashboard
+export default Dashboard;
 
 
 
